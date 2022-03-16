@@ -17,14 +17,19 @@ def run(*arg):
     # 签到
     url = "https://www.busjav.fun/forum/home.php?mod=spacecp&ac=credit"
     headers = {
+        'authority': 'www.busjav.fun',
+        'method': 'GET',
+        'path': '/forum/home.php?mod=spacecp&ac=credit',
+        'scheme': 'https',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0',
-        'Connection' : 'keep-alive',
-        'Host' : 'www.right.com.cn',
+        #'Connection' : 'keep-alive',
+        #'Host' : 'www.right.com.cn',
         'Upgrade-Insecure-Requests' : '1',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
         'Accept-Language' : 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
         'Accept-Encoding' : 'gzip, deflate, br',
-        'Cookie': cookie
+        'Cookie': cookie,
+        'referer': 'https://www.busjav.fun/forum/home.php?mod=spacecp'
     }
     try:
         r = s.get(url, headers=headers, timeout=120)
