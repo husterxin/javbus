@@ -31,8 +31,9 @@ def run(*arg):
         'Cookie': cookie,
         'referer': 'https://www.busjav.fun/forum/home.php?mod=spacecp'
     }
+    r = s.get(url, headers=headers, timeout=120,verify=False)
     try:
-        r = s.get(url, headers=headers, timeout=120)
+        #r = s.get(url, headers=headers, timeout=120,verify=False)
         # print(r.text)
         if '每天登录' in r.text:
             h = etree.HTML(r.text)
