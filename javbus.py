@@ -36,16 +36,19 @@ def run(*arg):
         'referer': 'https://www.javbus.com/forum/home.php?mod=spacecp'
     }
     try:
-        r = s.get(url, headers=headers, timeout=120)
+        r = s.get(url, headers=headers, timeout=60)
         if '每天登录' in r.text or '每天登錄' in r.text:
             h = etree.HTML(r.text)
             data = h.xpath('//tr/td[6]/text()')
-            msg += f'签到成功或今日已签到，最后签到时间：{data[0]}'
+            msg += f'签到成功或今日已签到,最后签到时间:{data[0]}'
         else:
-            msg += '签到失败，可能是cookie失效了！'
+            msg += '签到失败,可能是cookie失效了!'
             pusher(msg)
     except:
-        msg = '无法正常连接到网站，请尝试改变网络环境，试下本地能不能跑脚本，或者换几个时间点执行脚本'
+        if '失败' in msg:
+            pass
+        else:
+            msg = '无法正常连接到网站，请尝试改变网络环境，试下本地能不能跑脚本，或者换几个时间点执行脚本'
     return msg + '\n'
 
 def main(*arg):
