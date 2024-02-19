@@ -41,7 +41,7 @@ def run(*arg):
             h = etree.HTML(r.text)
             data = h.xpath('//tr/td[6]/text()')
             msg += f'签到成功或今日已签到,最后签到时间:{data[0]}'
-            print('当前系统时间为:' + time.strftime('%Y-%m-%d %H:%M:%S +0800',time.localtime(time.time())))
+            print('当前系统时间为:' + time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()+28800)))
         else:
             msg += '签到失败,可能是cookie失效了!'
             pusher(msg)
