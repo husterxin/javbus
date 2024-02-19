@@ -40,8 +40,8 @@ def run(*arg):
         if '每天登录' in r.text or '每天登錄' in r.text:
             h = etree.HTML(r.text)
             data = h.xpath('//tr/td[6]/text()')
-            msg += f'当前系统时间为:{time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))}'
             msg += f'签到成功或今日已签到,最后签到时间:{data[0]}'
+            print('当前系统时间为:' + time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())))
         else:
             msg += '签到失败,可能是cookie失效了!'
             pusher(msg)
