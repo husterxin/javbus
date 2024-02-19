@@ -41,7 +41,6 @@ def run(*arg):
             h = etree.HTML(r.text)
             data = h.xpath('//tr/td[6]/text()')
             msg += f'签到成功或今日已签到,最后签到时间:{data[0]}'
-            print('当前系统时间为:' + time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()+28800)))
         else:
             msg += '签到失败,可能是cookie失效了!'
             pusher(msg)
@@ -72,5 +71,6 @@ def main(*arg):
 if __name__ == "__main__":
     if cookie:
         print("----------巴士论坛开始尝试签到----------")
+        print('当前北京时间为:' + time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()+28800)))
         main()
         print("----------巴士论坛签到执行完毕----------")
