@@ -71,5 +71,6 @@ def main(*arg):
 if __name__ == "__main__":
     if cookie:
         print("----------巴士论坛开始尝试签到----------")
+        print('当前北京时间为:' + time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()+28800)))
         main()
         print("----------巴士论坛签到执行完毕----------")
